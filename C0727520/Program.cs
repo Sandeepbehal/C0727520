@@ -7,22 +7,25 @@ using System.Threading.Tasks;
 
 namespace PeterIsTheRulerOfIT
 {
-class Program
-{
-static void Main(string[] args)
-{
-Console.WriteLine("Peter Rules the IT Universe!");
-Download();
-Console.ReadLine();
-}
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Peter Rules the IT Universe!");
+            Download();
+            Console.ReadLine();
+        }
 
-static void Download()
-{
-Task.Run(() => {
-Thread.Sleep(3000);
-Console.WriteLine("Download Complete ...");
-}
-);
-}
-}
+        static void Download()
+        {
+            Network.Download();
+        }
+        class Network
+        {
+            static public Task Download()
+            {
+                return Task.Run( ()=> Thread.Sleep(3000));
+            }
+        }
+    }
 }
